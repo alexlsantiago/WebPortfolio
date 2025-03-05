@@ -1,0 +1,576 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap');
+
+:root{
+    --black: #1c1c1c;
+  --gray: #7E7E7E;
+  --gray-light: #E4E4E4;
+  --red: #b30000;
+  --font-size-base: 1rem;
+  --font-size-sm: clamp(0.875rem, 0.61vw + 0.61rem, 1.25rem);
+  --font-size-md: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
+  --font-size-lg: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
+  --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+  --border-radius: 10px;
+
+}
+
+html, body {
+    overflow-x: hidden;  /* Prevent horizontal scroll */
+    overflow-y: hidden;  /* Prevent vertical scroll if it's not necessary */
+}
+
+body{
+    background-color: #bbbf9e;
+    font-family: "Atkinson Hyperlegible Next", serif;
+    color: #191921;
+    font-size: var(--font-size-base);
+    background-image: url('https://images.unsplash.com/photo-1612838320303-4b3b3b3b3b3b');
+    margin: 0;
+}
+
+a { color: var(--black);}
+h1 { font-size: var(--font-size-xl);}
+h2 { font-size: var(--font-size-lg);}
+h3 { font-size: var(--font-size-md);}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+select,
+textarea{
+    font-family: "Atkinson Hyperlegible Next", serif;
+    font-size: var(--font-size-base);
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.7rem 0.75rem;
+    margin-bottom: 1rem;
+
+}
+
+.btn{
+    background-color: var(--black);
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+
+}
+
+.btn-delete{
+    padding: 10px 16px;
+    background-color: var(--red);
+}
+
+
+
+/* image */
+
+/* Author Section Styles */
+.body-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Ensure it takes full width */
+    width: 100%;
+}
+
+.author__image {
+    flex-shrink: 0;
+    width: 850px; /* Adjust this value as needed to make the image bigger */
+    height: auto; /* Maintain aspect ratio of the image */
+    margin-right: -550px; /* Adjust margin between the image and icons */
+}
+
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-rows: repeat(2, auto); /* 2 rows */
+    gap: 10px; /* Adjust the gap between the grid items */
+    width: 100%; /* Make the grid take up the full available space */
+}
+
+.icon-grid .icon {
+    /* Optional: Adjust icon sizes or other styling */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: box-shadow 0.3s ease;
+}
+
+
+
+
+
+
+/* For mobile screens */
+
+/* Author Image on Mobile */
+@media only screen and (max-width: 768px) {
+    .author__img {
+        width: 70%;  /* Make the image fill the width of the screen */
+        margin-right: 0;  /* Remove the margin to make it fit properly */
+    }
+}
+
+
+/* Icon Grid on Mobile */
+@media only screen and (max-width: 768px) {
+    .icon-grid {
+        grid-template-columns: 1fr; /* Switch to 1 column layout */
+        grid-template-rows: repeat(6, auto); /* Adjust rows to fit all icons */
+    }
+
+    .author__img {
+        margin-bottom: 20px; /* Add some margin for spacing */
+    }
+}
+
+/* Body text scaling on mobile */
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: var(--font-size-sm); /* Smaller font size for better readability */
+    }
+
+    .author__heading {
+        font-size: var(--font-size-md); /* Adjust heading size for mobile */
+    }
+
+    .author__body {
+        font-size: var(--font-size-sm); /* Adjust body text size */
+    }
+}
+
+
+
+/* Header layout on mobile */
+@media only screen and (max-width: 768px) {
+    .header {
+        grid-template-columns: 1fr; /* Stack elements vertically */
+        grid-template-areas:
+            "logo"
+            "menu"
+            "button"; /* Stack header items on mobile */
+    }
+
+    .header__logos {
+        margin: 0 auto; /* Center the logos */
+    }
+
+    .header__nav ul {
+        flex-direction: column; /* Stack navigation links vertically */
+        align-items: center;
+    }
+
+    .header__button {
+        justify-content: center; /* Center the button */
+    }
+}
+
+/* Button styling for mobile */
+@media only screen and (max-width: 768px) {
+    .btn {
+        padding: 12px 24px; /* Larger padding for better touch interaction */
+        font-size: var(--font-size-sm); /* Adjust font size */
+    }
+
+    .header__button button {
+        padding: 8px 16px; /* Larger padding on mobile */
+        font-size: var(--font-size-sm);
+    }
+}
+
+
+
+/* For laptops and desktops */
+@media only screen and (min-width: 769px) {
+    .author__img {
+        width: 20%;       
+        height: auto;     
+        margin-left: 0;    
+    }
+}
+
+
+
+
+/* Layout */
+.container{
+    max-width: 982px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.main{
+    padding: 20px 0;
+}
+
+/* Main Header */
+
+.header {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    padding-top: 8px;
+    grid-template-areas:
+    "name logo"
+    "menu menu";
+    justify-content: space-between; /* Add space between the grid items */
+}
+
+
+
+@media only screen and (min-width: 768px){
+    .header{
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas:
+        "name menu logo"
+    }
+}
+
+.header__logos a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: logo;
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    border: 0.1rem solid var(--black);
+    font-size: 2rem;
+    border-radius: 50%;
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease;
+}
+
+
+
+.header__logos a:hover{
+    transform: scale(1.3) translateY(-5px);
+    background-color: white;
+}
+
+.header__logolinkd a:hover{
+    color: #0077B5;
+}
+
+.header__logolinkd{
+    color: #0077B5;
+}
+
+.header__nav{
+    margin-left: 150px;
+    grid-area: menu;
+    justify-content: center;
+}
+
+.header__name{
+    font-size: var(--font-size-md);
+    font-weight: bold;
+    grid-area: name;
+}
+
+/* Header -> Naviagation */
+
+.header__nav ul{
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+    font-weight: 600;
+    padding: 0;
+    margin-left: -5px;
+}
+
+.header__nav ul a{
+    padding: 10px;
+    text-decoration: none;
+}
+
+.header__nav ul a:hover{
+    text-decoration: underline;
+}
+
+
+.header__nav ul a.active{
+    color: var(--gray);
+}
+
+
+/* Author - Homepage */
+
+.author{
+    padding: 10px 0;
+    text-align: center;
+}
+
+.author__heading{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.author__body{
+    font-size: var(--font-size-md);
+    margin: 5px 0 40px 0;
+}
+
+/* Home Article List */
+
+.article__heading{
+    margin-top: 4rem;
+    font-weight: 400;
+}
+
+.article-ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+    display: flex;
+    flex-direction: column;
+}
+
+.article-list__date{
+    font-size: var(--font-size-base);
+    color: var(--gray);
+    width: 260px;
+    display: inline-block;
+}
+
+.article-ul li a{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    margin: 18px 0
+}
+
+ @media only screen and (min-width: 768px){
+    .article-ul li a{
+        flex-direction: row;
+        align-items: center;
+    }
+    .article-list__date{
+        text-align: right;
+    }
+}
+
+.article-ul li{
+    font-size: 24px;
+    cursor: pointer;
+    transition: filter 0.1s;
+}
+
+.article-ul li:not(:Last-child){
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.article-ul li:hover{
+    filter: none;
+}
+
+.article-ul:hover li{
+    filter: blur(3px);
+}
+
+.article-ul:hover li:hover{
+    filter: none;
+}
+
+.pagination{
+    font-size: 1.3rem;
+    color: var(--gray);
+    text-decoration: none;
+    margin-top: 40px;
+    display: inline-block;
+}
+
+.pagination:hover{
+    color: var(--black);
+}
+
+.article{
+    white-space: pre-wrap;
+}
+
+/* Footer */
+/*
+.footer{
+    margin: 4rem;
+    text-align: center;
+}
+*/
+.resume-link{
+    color: #0000FF;
+    text-decoration: none;
+}
+
+.resume-link:hover{
+    text-decoration: underline;
+}
+
+
+
+
+/* Admin */
+
+.admint-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.admin-posts{
+    padding: 0;
+    margin: 0;
+
+}
+
+.admin-post-controls form{
+    display: inline-block;
+}
+
+admin-post-controls .btn{
+    display: inline-block;
+    background-color: var(--black);
+    color: var(--gray-light);
+    border: 0;
+    text-decoration: none;
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    line-height: 2;
+}
+
+.admin-posts li{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+/* Article Clicked */
+
+.articleTitle{
+    font-size: var(--font-size-lg);
+    margin-top: 20px;   
+    text-align: center;
+}
+
+
+.author__body{
+    font-size: var(--font-size-sm);
+    margin: 5px 0 40px 0;
+}
+
+/* Experience Page */
+
+.exp__header{
+    margin-top: -75px;
+}
+
+.exp__body{
+    margin-top: -10px;
+    display: flex;
+    justify-content: space-between;
+    gap:20px;
+}
+
+.exp1, .exp2, .exp3 {
+    border: 2px solid black; /* Add a solid border */
+    padding: 15px; /* Add space inside the boxes */
+    border-radius: 10px; /* Optional: Rounded corners */
+    background-color: #f9f9f9; /* Optional: Light background */
+    width: 30%; /* Make sure they fit nicely in a row */
+    text-align: center;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for a lifted effect */
+    margin-bottom: -11px;
+}
+
+.exp1:hover, .exp2:hover, .exp3:hover{
+    transform: scale(1.1);
+    transition: 0.3s ease;
+}
+
+.cpt__desc{
+    font-size: 14px;
+    text-align: left;
+}
+
+.da__desc{
+    font-size: 19px;
+    text-align: left;
+}
+
+.dd__desc{
+    font-size: 18px;
+    text-align: left;
+}
+
+.projects__header{
+    margin-top: -30px;
+}
+
+.contact__header{
+    margin-top: -30px;
+}
+
+.email{
+    color: #0000FF;
+    text-decoration: none;
+    font-size: var(--font-size-md)
+}
+
+.email:hover{
+    text-decoration: underline;
+}
+
+.phone__number{
+    font-size: var(--font-size-md)
+}
+
+
+/* Footers  */
+
+.footer__exp{
+    margin-top: 39px;
+    text-align: center;
+}
+
+.footer__con{
+    margin-top: 235px;
+    text-align: center;
+}
+
+.footer__ind{
+    margin-top: 82px;
+    text-align: center;
+}
+
+.footer__proj{
+    margin-top: 513px;
+    text-align: center;
+}
+
+.backtologin{
+    text-decoration: none;
+    font-size: var(--font-size-md);
+}
+
+.backtodash{
+    text-decoration: none;
+    font-size: var(--font-size-md);
+}
+
+.backtologin:hover{
+    text-decoration: underline;
+}
+
+.backtodash:hover{
+    text-decoration: underline;
+}

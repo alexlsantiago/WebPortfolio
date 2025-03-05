@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= locals.title %></title>
+    <meta name="description" content="<%= locals.description %>" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script type="text/javascript" defer src="/js/script.js" defer></script>
+  </head>
+  <body>
+
+    <div class="container">
+      <%- include("../partials/header.ejs") %>
+      <main class="main"><%- body %></main>
+      <footer class="footer__con">
+        &copy; <%= new Date().getFullYear(); %> Santiago - Built with NodeJS & MongoDB - 
+        <a href="/img/resume.pdf" target="_blank" class="resume-link">View My Resume</a>
+    
+    </footer>
+    </div>
+  </body>
+</html>
