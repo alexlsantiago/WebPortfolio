@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const MongoStore = require("connect-mongo");
 const session = require("express-session");
 const methodOverride = require("method-override")
+const path = require('path');
 
 
 const connectDB = require("./server/config/db");
@@ -31,7 +32,7 @@ app.use(session({
     cookie: { maxAge: new Date(Date.now() + 60 * 60 * 1000) }
 }))
 
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 
 app.use(expressLayout);
